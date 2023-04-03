@@ -10,7 +10,7 @@ type MovieListProps = {
   decadeData: { decade: string; data: Movie[] }[];
 };
 
-const MovieList = memo(({ decadeData }: MovieListProps) => {
+const MovieList = function MovieList({ decadeData }: MovieListProps) {
   console.log('MovieList rendered');
 
   const list = useMemo(() => decadeData.reverse().map((decade) => (
@@ -48,7 +48,7 @@ const MovieList = memo(({ decadeData }: MovieListProps) => {
   )), [decadeData]);
 
   return (<div>{list}</div>);
-});
+}
 
 export default MovieList;
 
