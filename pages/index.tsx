@@ -16,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     console.log("Fetching movies...");
 
-    const currentYear = new Date().getFullYear();
+    const currentYear = new Date().getFullYear()-10;
     const currentDecadeStart = Math.floor(currentYear / 10) * 10;
 
     const decades = [...Array(14)].map((_, i) => {

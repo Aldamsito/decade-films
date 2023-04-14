@@ -13,15 +13,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         throw new Error("Failed to fetch data");
 
     const data = await response.json();
-    const movies: Movie[] = data.results.map((movie: any) => ({
-        ID: movie.id,
-        Title: movie.title,
-        Year: movie.release_date.substring(0, 4),
-        Rating: movie.vote_average.toFixed(1),
-        Votes: movie.vote_count,
-        Overview: movie.overview,
-        Image_path: movie.poster_path,
-    }));
+    const movies: Movie[] = data.results
+        .filter((movie: any) => movie.vote_count >= 500)
+        .map((movie: any) => ({
+            ID: movie.id,
+            Title: movie.title,
+            Year: movie.release_date.substring(0, 4),
+            Rating: movie.vote_average.toFixed(1),
+            Votes: movie.vote_count,
+            Overview: movie.overview,
+            Image_path: movie.poster_path,
+        }));
 
     res.status(200).json(movies);
 }
