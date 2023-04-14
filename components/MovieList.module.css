@@ -6,29 +6,31 @@
 
 .movie img {
     flex: 0 0 auto;
-    width: 200px;
-    height: 300px;
+    width: 130px;
+    aspect-ratio: 3/4;
     margin-right: 20px;
 }
 
-.movie-info {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.movie-title {
+.movietitle {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.movie-details {
+.movieinfo {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: auto;
+}
+
+.moviedetails {
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-.movie-rating {
-    font-size: 14px;
+.moviedescription {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
